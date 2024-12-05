@@ -2,17 +2,21 @@
   --background: #f5f6f8;
   --foreground: #3b434e;
   --primary: #7653fc;
+  --primary-hover: #4d2ccf;
   --secondary: #fc836d;
   --accent: #1dc37e;
   --accent-light: #c8f8e4;  
+  --gray-light: #ebebeb;
 }
 
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #3b434e;
     --foreground: #f5f6f8;
   }
 }
+*/
 
 html,
 body {
