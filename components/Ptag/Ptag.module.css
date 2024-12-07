@@ -1,0 +1,18 @@
+.ptag {
+  font-family: var(--font-noto-sans-regular);
+}
+
+.s {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.m{
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.l {
+  font-size: 18px;
+  line-height: 24px;
+}
