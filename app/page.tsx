@@ -1,8 +1,10 @@
-import React from 'react';
-import { Button, Htag, Tag } from '../components';
+'use client';
+import React, { useState } from 'react';
+import { Button, Htag, Rating, Tag } from '../components';
 import { Ptag } from '@/components/Ptag/Ptag';
 
 export default function Home() {
+  const [rating, setRating] = useState<number>(4);
   return (
     <>
       <Htag tag="h1">Текст</Htag>
@@ -32,6 +34,11 @@ export default function Home() {
       >
         мал сер ссыль
       </Tag>
+      <Rating
+        rating={rating}
+        isEditable={true}
+        setRating={setRating}
+      />
     </>
   );
 }
