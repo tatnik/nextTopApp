@@ -7,6 +7,12 @@
   list-style: none;
 }
 
+.menu li {
+  margin:0;
+  padding:0;
+}
+
+
 .menu svg{
   fill: var(--gray-dark);
 }
@@ -31,10 +37,12 @@
 
 
 .secondlevellist{
+  margin-bottom: 20px;
   margin-left:12px;
-  padding-right:34px;
+  padding-right:21px;
   padding-left:21px;
-  border-left: 1px solid var(--gray);
+
+  border-left: 1px solid var(--gray)
 }
 
 .secondlevelitem{
@@ -55,16 +63,21 @@
   display:block;
 }
 
+.thirdlevellist{
+  margin:0;
+  margin-bottom:10px;
+  padding:0;
+}
 
 .thirdlevelitem{
   cursor:pointer;
 
-  margin-bottom:10px;
-
   font-family: var(--font-noto-sans-medium);
   font-size: 14px;
+  line-height:18px;
   text-transform: none;
 }
+
 
 
 .firstlevelactive,

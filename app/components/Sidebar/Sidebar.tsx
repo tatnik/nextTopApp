@@ -1,4 +1,4 @@
-import { Menu } from '../Menu/Menu';
+import { ServerMenu } from '../Menu/ServerMenu';
 import styles from './Sidebar.module.css';
 import { SidebarProps } from './Sidebar.props';
 import cn from 'classnames';
@@ -15,7 +15,7 @@ export const Sidebar = (props: SidebarProps): JSX.Element => {
         { ...rest },
       )}
     >
-      <Menu />
+      <ServerMenu />
     </div>
   );
 };
