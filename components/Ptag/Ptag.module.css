@@ -1,4 +1,5 @@
 .ptag {
+  margin:0;
   font-family: var(--font-noto-sans-regular);
 }
 
@@ -15,4 +16,16 @@
 .l {
   font-size: 18px;
   line-height: 24px;
+}
+
+.xl {
+  font-family: var(--font-noto-sans-bold);
+  font-size: 26px;
+  line-height: 32px
+}
+
+.xxl {
+  font-family: var(--font-noto-sans-bold);
+  font-size: 36px;
+  line-height: 42px
 }

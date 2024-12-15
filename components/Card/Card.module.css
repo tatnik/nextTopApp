@@ -1,0 +1,13 @@
+.card{
+  padding:20px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+}
+
+.primary{
+  background-color: white;
+}
+
+.secondary{
+  background-color: #f9f8ff;
+}
