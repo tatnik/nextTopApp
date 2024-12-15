@@ -10,8 +10,8 @@ export async function getMenu(firstCategory: number): Promise<MenuItem[] | null>
     headers: new Headers({ 'Content-Type': 'application/json' }),
   });
   if (!res.ok) {
-    console.log(`меню категории ${firstCategory} не найдено`);
-    return null;
+    throw new Error(`меню категории ${firstCategory} не найдено`);
+  } else {
+    return res.json();
   }
-  return res.json();
 }
