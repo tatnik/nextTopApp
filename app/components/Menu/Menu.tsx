@@ -5,10 +5,25 @@ import cn from 'classnames';
 import { FirstLevelMenuItem, MenuItem, PageItem } from '@/interfaces/menu.interface';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export function Menu(props: MenuProps) {
   const { firstMenu, secondMenu, firstCategory } = props;
   const pathname = usePathname();
+
+  const [secMenu, setSecMenu] = useState(secondMenu);
+
+  const openSecondLevel = (secondCategory: string) => {
+    secMenu &&
+      setSecMenu(
+        secMenu.map((m) => {
+          if (m._id.secondCategory === secondCategory) {
+            m.isOpened = !m.isOpened;
+          }
+          return m;
+        }),
+      );
+  };
 
   function buildThirdLevel(pages: PageItem[], route: string) {
     return (
@@ -19,7 +34,7 @@ export function Menu(props: MenuProps) {
               <Link
                 href={`/${route}/${p.alias}`}
                 className={cn(styles.thirdlevelitem, {
-                  [styles.thirdlevelactive]: false,
+                  [styles.thirdlevelactive]: `/${route}/${p.alias}` === pathname,
                 })}
               >
                 {p.category}
@@ -32,18 +47,27 @@ export function Menu(props: MenuProps) {
   }
 
   function buildSecondLevel(firstItem: FirstLevelMenuItem) {
-    if (!secondMenu) {
+    if (!secMenu) {
       return <></>;
     }
     return (
       <ul className={cn(styles.secondlevellist)}>
-        {secondMenu.map((m: MenuItem) => {
+        {secMenu.map((m: MenuItem) => {
+          let isActive = false;
           if (m.pages.map((p) => p.alias).includes(pathname.split('/')[2])) {
             m.isOpened = true;
+            isActive = true;
           }
           return (
             <li key={m._id.secondCategory}>
-              <p className={styles.secondlevelitem}>{m._id.secondCategory}</p>
+              <p
+                className={cn(styles.secondlevelitem, {
+                  [styles.secondlevelactive]: isActive,
+                })}
+                onClick={() => openSecondLevel(m._id.secondCategory)}
+              >
+                {m._id.secondCategory}
+              </p>
               <div
                 className={cn(styles.secondlevelblock, {
                   [styles.secondlevelblockopen]: m.isOpened,
