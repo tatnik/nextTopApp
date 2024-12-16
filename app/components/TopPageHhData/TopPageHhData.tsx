@@ -1,11 +1,12 @@
-import { Card } from '../Card/Card';
-import { Ptag } from '../Ptag/Ptag';
-import styles from './HhData.module.css';
-import { HhDataProps } from './HhData.props';
-import RateIcon from '@/public/icons/star.svg';
-import cn from 'classnames';
+import { priceRu } from '@/helpers/helpers';
 
-export const HhData = (props: HhDataProps): JSX.Element => {
+import styles from './HhData.module.css';
+import { TopPageHhDataProps } from './TopPageHhData.props';
+import RateIcon from '@/public/icons/rate.svg';
+
+import { Card, Ptag } from '@/components';
+
+export const TopPageHhData = (props: TopPageHhDataProps): JSX.Element => {
   const { count, juniorSalary, middleSalary, seniorSalary } = props;
 
   return (
@@ -29,7 +30,7 @@ export const HhData = (props: HhDataProps): JSX.Element => {
             size={'xl'}
             className={styles.salaryValue}
           >
-            {juniorSalary}
+            {priceRu(juniorSalary)}
           </Ptag>
 
           <div className={styles.rate}>
@@ -45,7 +46,7 @@ export const HhData = (props: HhDataProps): JSX.Element => {
             size={'xl'}
             className={styles.salaryValue}
           >
-            {middleSalary}
+            {priceRu(middleSalary)}
           </Ptag>
 
           <div className={styles.rate}>
@@ -61,7 +62,7 @@ export const HhData = (props: HhDataProps): JSX.Element => {
             size={'xl'}
             className={styles.salaryValue}
           >
-            {seniorSalary}
+            {priceRu(seniorSalary)}
           </Ptag>
 
           <div className={styles.rate}>
