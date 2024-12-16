@@ -1,10 +1,9 @@
-import { firstMenu } from '@/app/components/Menu/ServerMenu';
 import { TopPage } from '../../components';
 import { getMenu } from '@/api/menu';
 import { getPage } from '@/api/page';
-import { notFound } from 'next/navigation';
 import { getProducts } from '@/api/product';
 import { ProductModel } from '@/interfaces/product.interface';
+import { firstMenu } from '@/helpers/helpers';
 
 type Params = Promise<{ route: string; alias: string }>;
 
@@ -18,12 +17,6 @@ export default async function pageCategory({ params }: { params: Params }) {
   }
   return (
     <>
-      <p>
-        {'* '}
-        top page {route} / {alias} // {page?.category} // {products?.length}
-      </p>
-      {products?.map((p) => <p>{p.title}</p>)}
-
       <TopPage
         page={page}
         firstCategory={cat}
